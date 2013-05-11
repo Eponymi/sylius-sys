@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'runit'
+cookbook 'sudo'
+cookbook 'apt'
+cookbook 'build-essential'
+cookbook 'ntp'
+cookbook 'nfs'
+cookbook 'apache2', '>= 1.0.0'
+cookbook 'fail2ban'
+cookbook 'mysql'
+cookbook 'xml'
+cookbook 'database'
+cookbook 'priestjim-php', :git => 'https://github.com/priestjim/chef-php'
+cookbook 'jolicode-php', :git => 'https://github.com/jolicode/chef-cookbook-php'
+cookbook 'xdebug', :git => 'https://github.com/xforty/chef-xdebug'
+cookbook 'swap'
+

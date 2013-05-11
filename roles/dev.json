@@ -1,0 +1,57 @@
+{
+  "name": "dev",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Get a Symfony2 app running on a single virtual machine",
+  "default_attributes": {
+    "user":{
+      "name": "vagrant"
+    },
+    "apache": {
+      "default_site_enabled": false
+    },
+    "symfony2": {
+    	"mysql": {
+  			"db_password": "thisisnotasecretandshouldbechanged"
+  		}
+  	},
+    "php": {
+    	"ini_settings": {
+    		"short_open_tag": "Off",
+    		"magic_quotes_gpc": "Off",
+    		"register_globals": "Off",
+    		"session.autostart": "Off",
+    		"date.timezone": "America/New_York"
+    	}
+    },
+    "jolicode-php": {
+    	"config": {
+    		"date.timezone": "America/New_York"
+    	}
+    }
+  },
+  "run_list": [
+    "role[base]",
+    "recipe[symfony2]"
+  ],
+  "intended_run_list": [
+  	"recipe[apt]",
+    "recipe[sudo]",
+    "recipe[ntp]",
+    "recipe[nfs]",
+    "recipe[build-essential]",
+    "recipe[fail2ban]",
+    "recipe[xml]",
+    "recipe[xdebug]",
+    "recipe[symfony2app]"
+  ],
+  "to_do": [
+  	"move php stuff to symfony2app recipe"
+  ],
+  "authorization": {
+    "sudo": {
+      "users": [ "vagrant" ],
+      "passwordless": true
+    }
+  }
+}

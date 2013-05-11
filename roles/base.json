@@ -1,0 +1,24 @@
+{
+  "name": "base",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Install common packages shared across all machines",
+  "default_attributes": {
+    "user":{
+      "name": "vagrant"
+    }
+  },
+  "run_list": [
+    "recipe[apt]",
+    "recipe[sudo]",
+    "recipe[ntp]",
+    "recipe[build-essential]",
+    "recipe[xml]"
+  ],
+  "authorization": {
+    "sudo": {
+      "users": [ "vagrant" ],
+      "passwordless": true
+    }
+  }
+}

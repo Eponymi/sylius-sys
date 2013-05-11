@@ -1,0 +1,14 @@
+# Name of the vm
+$dev_vmname = "sylius"
+
+# VM IP
+$ip = "192.168.10.11"
+
+# Use NFS?
+$use_nfs = true
+
+# Base box name
+$base_box = ""
+
+# TO-DO: add nginx support
+# $webserver = "apache2"

@@ -1,0 +1,41 @@
+{
+  "name": "app",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "Any server which will run the Symfony2 Application",
+  "default_attributes": {
+    "user":{
+      "name": "vagrant"
+    },
+    "symfony2": {
+        "composer": {
+            "package_name": "symfony/framework-standard-edition",
+            "package_version": "2.2.x-dev"
+        }
+  	}
+  },
+  "run_list": [
+    "role[base]",
+    "recipe[symfony2::php]"
+  ],
+  "intended_run_list": [
+  	"recipe[apt]",
+    "recipe[sudo]",
+    "recipe[ntp]",
+    "recipe[nfs]",
+    "recipe[build-essential]",
+    "recipe[fail2ban]",
+    "recipe[xml]",
+    "recipe[xdebug]",
+    "recipe[symfony2app]"
+  ],
+  "to_do": [
+  	"move php stuff to symfony2app recipe"
+  ],
+  "authorization": {
+    "sudo": {
+      "users": [ "vagrant" ],
+      "passwordless": true
+    }
+  }
+}

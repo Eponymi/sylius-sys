@@ -1,0 +1,21 @@
+{
+  "mysql": {
+    "server_root_password": "thisisnotasecretandshouldbechanged", 
+    "server_debian_password": "thisisnotasecretandshouldbechanged", 
+    "server_repl_password": "thisisnotasecretandshouldbechanged"
+  },
+  "symfony2": {
+  	"mysql": {
+  		"db_password": "thisisnotasecretandshouldbechanged"
+  	}
+  },
+  "run_list": [
+    "role[dev]"
+  ],
+  "authorization": {
+    "sudo": {
+      "users": [ "vagrant" ],
+      "passwordless": true
+    }
+  }
+}

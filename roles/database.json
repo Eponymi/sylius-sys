@@ -1,0 +1,25 @@
+{
+  "name": "database",
+  "chef_type": "role",
+  "json_class": "A database server for the Symfony2 app",
+  "default_attributes": {
+    "user":{
+      "name": "vagrant"
+    },
+    "symfony2": {
+    	"mysql": {
+  			"db_password": "thisisnotasecretandshouldbechanged"
+  		}
+  	}
+  },
+  "run_list": [
+    "role[base]",
+    "recipe[symfony2::mysql]"
+  ],
+  "authorization": {
+    "sudo": {
+      "users": [ "vagrant" ],
+      "passwordless": true
+    }
+  }
+}
