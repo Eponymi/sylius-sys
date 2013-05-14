@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
   		dev.vm.network :private_network, ip: $ip
   	
   		#dev.vm.network :forwarded_port, guest: 80, host: 8080
-  		dev.vm.synced_folder "../proj", "/var/www/" + $dev_vmname, :nfs => true
+  		dev.vm.synced_folder "../sylius-proj", "/var/www/" + $dev_vmname, :nfs => true
   	
   		dev.vm.provider :virtualbox do |vb|
   			vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
